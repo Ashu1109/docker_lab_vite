@@ -8,4 +8,17 @@ services:
     volumes:
       - ./hostel:/app
       - /app/node_modules
-    
+    environment:
+      - NODE_ENV=development
+  backend:
+    build: 
+      context: ./hostelServer
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./hostelServer:/app
+      - /app/node_modules
+    environment:
+      - NODE_ENV=development
+      
